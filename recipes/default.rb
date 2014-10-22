@@ -41,13 +41,13 @@ execute "R patched source compile and install" do
   command <<-CODE
 set -e
 (cd #{Chef::Config[:file_cache_path]}/r-devel/ && tar zxvf R-latest.tar.gz)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && ./configure --without-recommended-packages --enable-R-shlib)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && ./tools/rsync-recommended)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && ./tools/link-recommended)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && make)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && bin/R CMD INSTALL src/library/Recommended/MASS.tgz)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && make check)
-(cd #{Chef::Config[:file_cache_path]}/r-devel/R-patched && make install)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && ./configure --without-recommended-packages --enable-R-shlib)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && ./tools/rsync-recommended)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && ./tools/link-recommended)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && make)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && bin/R CMD INSTALL src/library/Recommended/MASS.tgz)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && make check)
+(cd #{Chef::Config[:file_cache_path]}/r-devel/R-beta && make install)
 CODE
   action :run
 end
