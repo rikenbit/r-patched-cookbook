@@ -13,7 +13,7 @@ platforms:
 
 
 suites:
-  - name: default
+  - name: r-patched-cookbook
     run_list:
       - recipe[ubuntu-change-source-list]
       - recipe[apt]
